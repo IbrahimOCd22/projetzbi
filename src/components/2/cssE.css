@@ -1,0 +1,65 @@
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-left: 14px;
+    margin-top: 19px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }  
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    
+  }  
+  .chak {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 29px;
+    width: 32px;
+    background-color: #eee;
+    border-radius: 5px;
+  }  
+  .container:hover input ~ .chak {
+    background-color: #ccc;
+  }  
+
+  .container input:checked ~ .chak {
+    background-color: #E6DF2A;
+  }
+
+  
+  .chak:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  .container input:checked ~ .chak:after {
+    display: block;
+  }
+  
+  .container .chak:after {
+    left: 10px;
+    top: 4px;
+    width: 10px;
+    height: 20px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  .container p {
+color: aliceblue;
+font-size: 20px;
+margin-left: 10px;
+  }

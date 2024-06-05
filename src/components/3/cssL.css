@@ -1,0 +1,74 @@
+input[type=password]:focus,
+select:focus {
+  border: 2px solid #E6DF2A;
+  outline: none;
+}
+
+input[type=text]::placeholder,
+select::placeholder {
+  color: #918989;
+  font-size: 14px;
+}
+
+.pagination {
+  list-style: none;
+  height: 31.5px;
+  width: 31.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2px;
+  cursor: pointer;
+  font-size: 20px;
+
+}
+
+.active {
+  color: #21b9ce;
+
+}
+
+li.previous.disabled a{
+  list-style: none;
+  padding: 20px 12px;
+  height: 31.5px;
+  width: 31.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+  color: #21b9ce;
+text-decoration: none;
+
+}
+li.next a{
+  list-style: none;
+  padding: 20px 12px;
+  height: 31.5px;
+  width: 31.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+  color: #21b9ce;
+text-decoration: none;
+
+}
+
+
+li a{
+  margin-right: 40px;
+}
+a{
+  list-style: none;
+  padding: 20px 12px;
+  height: 31.5px;
+  width: 31.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+  color: #21b9ce;
+text-decoration: none;
+}
+

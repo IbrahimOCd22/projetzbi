@@ -1,0 +1,162 @@
+.cont {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-left: 14px;
+    margin-top: 19px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+    .cont input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    
+  }
+    .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 23px;
+    background-color: #eee;
+    border-radius: 5px;
+  }
+    .cont:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+    .cont input:checked ~ .checkmark {
+    background-color: #E6DF2A;
+  }
+    .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+    .cont input:checked ~ .checkmark:after {
+    display: block;
+  }
+    .cont .checkmark:after {
+    left: 9px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  .cont p {
+color: aliceblue;
+font-size: 12px;
+  }
+  input[type=text], select {
+  color: #ffffff;
+    width:290px;
+    height:42px;
+    padding: 10px 9px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #E6DF2A;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: rgba(255, 0, 0, 0);
+}
+input[type=text]:focus, select:focus {
+  border: 2px solid #E6DF2A;
+  outline: none; 
+}
+input[type=text]::placeholder, select::placeholder {
+  color: #b0a0a0; 
+  font-size: 14px;
+}
+input[type=password], select {
+  color: #ffffff;
+    width:290px;
+    height:42px;
+    padding: 10px 9px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #E6DF2A;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: rgba(255, 0, 0, 0);
+}
+input[type=password]:focus, select:focus {
+  border: 2px solid #E6DF2A;
+  outline: none; 
+}
+input[type=password]::placeholder, select::placeholder {
+  color: #c6bfbf; 
+  font-size: 14px;
+}
+input[type=text]::placeholder, select::placeholder {
+  color: #c6bfbf; 
+  font-size: 14px;
+}
+textarea {
+  color: #ffffff;
+    width:290px;
+    height:42px;
+    padding: 10px 9px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #E6DF2A;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: rgba(255, 0, 0, 0);
+    font-size: 12px;
+}
+textarea:focus {
+  border: 2px solid #E6DF2A;
+  outline: none; 
+}
+textarea::placeholder, select::placeholder {
+  color: #c1b6b6; 
+  font-size: 14px;
+}
+input::placeholder, select::placeholder {
+  color: #c1b6b6; 
+  font-size: 14px;
+}
+/* Style de base pour cacher l'élément input */
+.file input[type="file"] {
+  display: none;
+}
+
+/* Style personnalisé pour le champ de fichier */
+.file-custom {
+  display: inline-block;
+  cursor: pointer;
+  padding: 8px 12px;
+  background-color: rgba(255, 0, 0, 0); /* Couleur transparente pour le fond */
+  border: 2px solid #E6DF2A; /* Bordure solide */
+  color: #fff; /* Couleur du texte */
+  border-radius: 4px; /* Coins arrondis */
+  width: 290px; /* Largeur */
+  height: 42px; /* Hauteur */
+  margin-top: 185px; /* Marge en haut */
+}
+
+/* Style lorsque le curseur survole le champ de fichier personnalisé */
+.file-custom:hover {
+  background-color: #b38c00;
+}
+
+/* Style lorsque le champ de fichier est activé */
+.file input[type="file"]:focus + .file-custom {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+/* Style lorsque le champ de fichier est survolé */
+.file input[type="file"]:hover + .file-custom {
+  background-color: hsla(167, 29%, 33%, 0.4); /* Couleur transparente pour le fond */
+}
