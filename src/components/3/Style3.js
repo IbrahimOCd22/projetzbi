@@ -333,15 +333,8 @@ export const e16 ={paddingBottom:"30px",paddingLeft:"60px"}
 export const e17 ={   fontSize:"39px",fontWeight:"500", paddingTop: "10px",color:"#979222"}
 export const e18 ={ display: "flex", marginTop: "12px",paddingLeft:"19px"}
 export const e19={ maxWidth: '600px', wordWrap: 'break-word', fontSize: "15px", fontWeight: "400", marginTop: "8px" }
+export const e20= { width: " 1060px", height: "100px", marginTop: "18px", marginLeft: "90px", height: "120px",backgroundColor:"rgb(226, 246, 251)" }
 
-
-// export const ppll =
-// export const ppll =
-// export const ppll =
-// export const ppll =
-// export const ppll =
-// export const ppll =
-// export const ppll = 
-
-
-
+export const inu = {width:'430px',border:"2px solid #656565"}
+ export const buy = {position: "relative", width: "90px", height: "40px", border: "none", borderRadius: "8px", background: "#ABAD32", color: "#E2F6FB", bottom: "55px", left: "900px" }
+export const bit ={position:"relative",width:"120px",height:"30px",borderRadius:"5px",color:"#fff",border:"none"}

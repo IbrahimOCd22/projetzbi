@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { div1Style, titleStyle, h1D, div4, input, lab2, lab3, button, div3 } from './Style2'; // Removed lab1 from import
+import { div1Style, titleStyle, h1D, div4, input, lab2, lab3, button, div3 } from './Style2';
 import img2 from './img2/div.png';
 import './cssD.css';
 import axios from 'axios';
@@ -13,7 +13,7 @@ function PageF() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState(null);
 
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setTest(!test);
@@ -33,11 +33,19 @@ function PageF() {
     try {
       const response = await axios.post('http://localhost:8000/api/Employer', { name, email, password });
       console.log('Employer created:', response.data);
+
+      // Inspect the structure of the response
+      const userId = response.data?.id || response.data?.employer?.id;
+
+      if (!userId) {
+        throw new Error('User ID not found in response');
+      }
+
       setName('');
       setEmail('');
       setPassword('');
       setConfirmPassword('');
-      navigate('/login/Employer/Profile'); // Navigate to the desired route
+      navigate(`/login/Employer/Profile/${userId}`);
     } catch (err) {
       console.error('Error creating employer:', err.response?.data || err.message);
       setError(err.response?.data.message || 'An error occurred');

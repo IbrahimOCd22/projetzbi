@@ -53,23 +53,23 @@ function App() {
         <Route path="/signup/cvcandida/autre/:id" element={<PageK />} />
 
 
-        <Route path="/login/candida/Profile" element={<PageL/>} />
-        <Route path="/login/candida/cv" element={<PageN/>} />
-        <Route path="/login/candida/jobs" element={<PageO/>} />
-        <Route path="/login/candida/notices" element={<PageP/>} />
-        <Route path="/login/candida/cv/edit" element={<PageQ/>} />
+        <Route path="/login/candida/Profile/:id" element={<PageL/>} />
+        <Route path="/login/candida/cv/:id" element={<PageN/>} />
+        <Route path="/login/candida/jobs/:id" element={<PageO/>} />
+        <Route path="/login/candida/notices/:id" element={<PageP/>} />
+        <Route path="/login/candida/cv/edit/:id" element={<PageQ/>} />
        
 
-        <Route path="/login/Employer/Profile" element={<PageM/>} />
-        <Route path="/login/Employer/demande" element={<PageR/>} />
-        <Route path="/login/Employer/demande/More " element={<PageS/>} />
-        <Route path="/login/Employer/offre" element={<PageV/>} />
+        <Route path="/login/Employer/Profile/:id" element={<PageM/>} />
+        <Route path="/login/Employer/demande/:id" element={<PageR/>} />
+        <Route path="/login/Employer/demande/More/:id" element={<PageS />} /> {/* Remove extra space */}
+        <Route path="/login/Employer/offre/:id" element={<PageV/>} />
        
-       <Route path="/Profile" element={<Profile/>} />
-        <Route path="/Work" element={<Work />} />
-        <Route path="/Lang" element={<Lang />} />
-        <Route path="/Expen" element={<Expen />} />
-        <Route path="/Education" element={<Education />} />
+       <Route path="/Profile/:id" element={<Profile/>} />
+        <Route path="/Work/:id" element={<Work />} />
+        <Route path="/Lang/:id" element={<Lang />} />
+        <Route path="/Expen/:id" element={<Expen />} />
+        <Route path="/Education/:id" element={<Education />} />
 
       </Routes>
     </BrowserRouter> 

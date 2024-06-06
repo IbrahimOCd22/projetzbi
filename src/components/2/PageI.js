@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { div1Style, titleStyle2, h1D, div4, input1, option1, input, lab2, lab3, button, div3, h4, buttonI, spanI } from './Style2';
 import img2 from './img2/div.png';
 import './cssD.css';
-import { Link, useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function PageI() {
-  const { cv_id } = useParams(); // Retrieve cv_id from URL path
+  const { id } = useParams(); // Retrieve cv_id from URL path
 
   const [employer, setEmployer] = useState('');
   const [jobTitle, setJobTitle] = useState('');
@@ -16,35 +16,36 @@ function PageI() {
   const [endDateYear, setEndDateYear] = useState('');
   const [location, setLocation] = useState('');
   const [description, setDescription] = useState('');
+  const [error, setError] = useState(null); // Error state for better debugging
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    const formData = new FormData();
-    formData.append('employer', employer);
-    formData.append('jobtitre', jobTitle);
-    formData.append('startdate', `${startDateMonth} ${startDateYear}`);
-    formData.append('enddate', `${endDateMonth} ${endDateYear}`);
-    formData.append('localisation', location);
-    formData.append('description', description);
-    formData.append('c_v_s_id', cv_id); // Make sure cv_id is defined and valid
-  
+
+    const formData = {
+      employer,
+      jobtitre: jobTitle,
+      startdate: `${startDateYear}-${startDateMonth}-01`,
+      enddate: `${endDateYear}-${endDateMonth}-01`,
+      localisation: location,
+      description,
+      c_v_s_id: id, // Make sure cv_id is defined and valid
+    };
+
+    console.log('Submitting form data:', formData); // Debugging log
+
     try {
-      const response = await axios.post('http://localhost:8000/api/work', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
+      const response = await axios.post('http://localhost:8000/api/work', formData);
       console.log('Work experience details saved:', response.data);
       // Redirect or navigate to the next page after successful submission
       // Example: history.push('/signup/cvcandida/Education');
+      navigate(`/signup/cvcandida/Education/${id}`);
+
     } catch (error) {
       console.error('Error saving work experience details:', error);
-      // Handle error if needed
+      setError(error.response?.data); // Set error state for better debugging
     }
   };
-  
-  
 
   const startYear = 2010;
   const endYear = 2025;
@@ -53,8 +54,8 @@ function PageI() {
     years.push(year);
   }
   const months = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
+    "01", "02", "03", "04", "05", "06",
+    "07", "08", "09", "10", "11", "12"
   ];
 
   return (
@@ -92,7 +93,7 @@ function PageI() {
             value={startDateMonth}
             onChange={(e) => setStartDateMonth(e.target.value)}
           >
-            <option style={option1}>Month</option>
+            <option style={option1} value="">Month</option>
             {months.map((month, index) => (
               <option style={option1} key={index} value={month}>{month}</option>
             ))}
@@ -103,7 +104,7 @@ function PageI() {
             value={startDateYear}
             onChange={(e) => setStartDateYear(e.target.value)}
           >
-            <option style={option1}>Year</option>
+            <option style={option1} value="">Year</option>
             {years.map((year, index) => (
               <option style={option1} key={index} value={year}>{year}</option>
             ))}
@@ -116,7 +117,7 @@ function PageI() {
             value={endDateMonth}
             onChange={(e) => setEndDateMonth(e.target.value)}
           >
-            <option style={option1}>Month</option>
+            <option style={option1} value="">Month</option>
             {months.map((month, index) => (
               <option style={option1} key={index} value={month}>{month}</option>
             ))}
@@ -127,7 +128,7 @@ function PageI() {
             value={endDateYear}
             onChange={(e) => setEndDateYear(e.target.value)}
           >
-            <option style={option1}>Year</option>
+            <option style={option1} value="">Year</option>
             {years.map((year, index) => (
               <option style={option1} key={index} value={year}>{year}</option>
             ))}
@@ -153,11 +154,12 @@ function PageI() {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <button style={buttonI}><span style={spanI}>+</span> add new</button>
+          <button type="button" style={buttonI}><span style={spanI}>+</span> add new</button>
         </div>
        <input type='submit' value={"next -->"} style={{ ...button, position: 'absolute', top: "410px", left: "940px" }} />
 
       </div>
+      {error && <div style={{ color: 'red' }}>{JSON.stringify(error)}</div>}
     </form>
   );
 }
